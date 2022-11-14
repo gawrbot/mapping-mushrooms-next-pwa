@@ -37,17 +37,16 @@ export default function LocationMarker() {
     }
     getImagesAndCoordinates().catch(() => {});
   }, []);
-
+  console.log('image', images);
   return (
     <div>
       {images.length > 0
         ? images.map((image) => (
             <Marker key={image.id} position={[image.latitude, image.longitude]}>
               <Popup key={image.id}>
-                <Link href={`/private-profile/${image.id}`}>
+                <Link href={`profile/${image.usersUsername}/${image.id}`}>
                   <Image
-                    alt={`image coordinates: ${image.longitude},
-          ${image.latitude}`}
+                    alt={`image coordinates: ${image.longitude}, ${image.latitude}`}
                     src={image.image}
                     width={100}
                     height={100}

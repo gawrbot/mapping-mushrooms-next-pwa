@@ -25,7 +25,6 @@ export default function HomeMap() {
           <LocationMarker />
           <SpotMarker />
           <SavedSpots />
-
           <Search />
         </>
       )}

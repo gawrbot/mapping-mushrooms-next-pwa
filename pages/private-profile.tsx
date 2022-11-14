@@ -2,6 +2,7 @@ import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Anchor from '../components/Anchor';
 import { getImagesByUserId, ImageType } from '../database/images';
 import { getUserBySessionToken, User } from '../database/users';
@@ -12,14 +13,18 @@ type Props = {
 };
 
 export default function PrivateProfile(props: Props) {
+  const router = useRouter();
   if (!props.user) {
     return (
       <>
         <Head>
-          <title>User not found</title>
-          <meta name="description" content="User not found" />
+          <title>No access - please register or log in</title>
+          <meta
+            name="description"
+            content="No access, register or login required"
+          />
         </Head>
-        <h1>404 - User not found</h1>
+        <h1>No access - please register or log in</h1>
       </>
     );
   }
@@ -39,7 +44,7 @@ export default function PrivateProfile(props: Props) {
           {props.images?.map((image) => {
             return (
               <div key={image.image} className="lg:w-1/3 p-4 w-1/2">
-                <Link href={`/private-profile/${image.id}`}>
+                <Link href={`/profile/${props.user?.username}/${image.id}`}>
                   <Image
                     className="object-cover object-center w-full h-full block"
                     alt={`an image in the gallery of ${props.user?.username}'s profile`}
@@ -48,10 +53,25 @@ export default function PrivateProfile(props: Props) {
                     height={250}
                   />
                 </Link>
-                <p className="font-normal">
-                  Uploaded on {image.date.toString().slice(0, 10)} at{' '}
-                  {image.time}
+                <p className="font-normal text-xs">
+                  (Uploaded on {image.date.toString().slice(0, 10)} at{' '}
+                  {image.time})
                 </p>
+                <button
+                  onClick={async () => {
+                    await fetch(`api/images/${image.id}`, {
+                      method: 'DELETE',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({ id: image.id }),
+                    });
+                    router.push('/private-profile').catch(() => {});
+                  }}
+                  className="bg-red-600 rounded-md text-white py px-2 my-3 text-center"
+                >
+                  Delete this image
+                </button>
               </div>
             );
           })}

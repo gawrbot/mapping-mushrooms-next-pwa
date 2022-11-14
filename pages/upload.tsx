@@ -53,6 +53,7 @@ export default function Upload(props: Props) {
         longitude: locationCookie?.[0]?.longitude,
         latitude: locationCookie?.[0]?.latitude,
         userId: props.user.id,
+        userName: props.user.username,
         note: note,
         articleId: articleId,
       }),
@@ -86,7 +87,7 @@ export default function Upload(props: Props) {
         />
         <Select
           id="articles"
-          defaultValue=""
+          // defaultValue=""
           value={articleId}
           onChange={(event) => {
             setArticleId(Number(event.currentTarget.value));

@@ -8,12 +8,13 @@ export type ImageResponseBody =
   | { errors: { message: string }[] }
   | {
       image: {
-        day?: number;
+        date?: number;
         time?: number;
         image?: string;
         longitude?: number;
         latitude?: number;
         userId?: number;
+        userName?: string;
         note?: string;
         articleId?: number;
       };
@@ -50,6 +51,7 @@ export default async function handler(
       request.body.longitude,
       request.body.latitude,
       request.body.userId,
+      request.body.userName,
       request.body.note,
       request.body.articleId,
     );
@@ -60,6 +62,7 @@ export default async function handler(
         longitude: newImage?.longitude,
         latitude: newImage?.latitude,
         userId: newImage?.userId,
+        userName: newImage?.usersUsername,
         note: newImage?.note,
         articleId: newImage?.articleId,
       },

@@ -8,6 +8,7 @@ export type ImageType = {
   longitude: number;
   latitude: number;
   userId: number;
+  usersUsername: string;
   note?: string;
   articleId?: number;
 };
@@ -22,6 +23,7 @@ export async function getAllImages() {
     ST_X(ST_TRANSFORM(coordinates,4674)) AS longitude,
     ST_Y(ST_TRANSFORM(coordinates,4674)) AS latitude,
     users_id,
+    users_username,
     note,
     articles_Id
   FROM
@@ -41,6 +43,7 @@ export async function getImagesByUserId(userId: number) {
     ST_X(ST_TRANSFORM(coordinates,4674)) AS longitude,
     ST_Y(ST_TRANSFORM(coordinates,4674)) AS latitude,
     users_id,
+    users_username,
     note,
     articles_Id
   FROM
@@ -84,6 +87,7 @@ export async function getImageById(imageId: number) {
     ST_X(ST_TRANSFORM(coordinates,4674)) AS longitude,
     ST_Y(ST_TRANSFORM(coordinates,4674)) AS latitude,
     users_id,
+    users_username,
     note,
     articles_Id
   FROM
@@ -95,68 +99,33 @@ export async function getImageById(imageId: number) {
   return image;
 }
 
-// export async function getImagesByArticle(articleId: number) {
-//   if (!articleId) return undefined;
-
-//   const images = await sql<ImageType[]>`
-//   SELECT
-//     *
-//   FROM
-//     images
-//   WHERE
-//     article_id = ${articleId};
-//   `;
-
-//   return images;
-// }
-
 export async function createImage(
   image: string,
   longitude: number,
   latitude: number,
   userId: number,
+  userName: string,
   note: string,
   articleId: number,
 ) {
   // if (!note) {
   const [newImage] = await sql<ImageType[]>`
   INSERT INTO images
-    (image, coordinates, users_id, note, articles_id)
+    (image, coordinates, users_id, users_username, note, articles_id)
   VALUES
-    (${image}, ST_SetSRID(ST_MakePoint(${longitude}, ${latitude}), 4326), ${userId}, ${note}, ${articleId})
+    (${image}, ST_SetSRID(ST_MakePoint(${longitude}, ${latitude}), 4326), ${userId}, ${userName}, ${note}, ${articleId})
   RETURNING
     *
   `;
   return newImage;
 }
-// } else if (!articleId) {
-//   const [newImage] = await sql<Image[]>`
-// INSERT INTO images
-//   (image, coordinates, users_id, note)
-// VALUES
-//   (${image},ST_SetSRID(ST_MakePoint(${longitude}, ${latitude}), 4326), ${userId}, ${note})
-// RETURNING
-//   *
-// `;
-//   return newImage;
-// } else {
-//   const [newImage] = await sql<Image[]>`
-// INSERT INTO images
-//   (image,coordinates, users_id, note, articles_id)
-// VALUES
-//   (${image},ST_SetSRID(ST_MakePoint(${longitude}, ${latitude}), 4326), ${userId}, ${note}, ${articleId})
-// RETURNING
-//   *
-// `;
-//   return newImage;
-// }
 
-export async function deleteImageById(image: string) {
+export async function deleteImageById(imageId: number) {
   const [deletedImage] = await sql<ImageType[]>`
   DELETE FROM
     images
   WHERE
-    image = ${image}
+    id = ${imageId}
   RETURNING
     *
   `;

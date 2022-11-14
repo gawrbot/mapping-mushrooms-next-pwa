@@ -42,7 +42,7 @@ export default function LocationMarker() {
   return (
     <Control prepend position="bottomright">
       <button
-        className="rounded-full bg-sky-500 p-3 text-white font-bold"
+        className="rounded-full bg-sky-500 p-4 text-white font-bold text-lg"
         onClick={() => {
           clickHandlerLocation();
         }}

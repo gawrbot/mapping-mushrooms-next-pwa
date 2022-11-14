@@ -6,8 +6,9 @@ export async function up(sql) {
       image varchar NOT NULL,
       coordinates geometry(Point, 4326) NOT NULL,
       note varchar,
-			users_id integer REFERENCES users (id),
-      articles_id integer REFERENCES articles (id) DEFAULT 0
+      users_userName varchar REFERENCES users (username) ON DELETE CASCADE,
+			users_id integer REFERENCES users (id) ON DELETE CASCADE,
+      articles_id integer REFERENCES articles (id) ON DELETE CASCADE
     )
   `;
 }

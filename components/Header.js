@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 
 export default function Header() {
   return (
-    <header className="flex flex-col relative justify-center items-center w-screen text-black text-l z-10 shadow-md relative space-around font-bold">
+    <header className="flex flex-col relative justify-center items-center w-screen text-black text-l z-10 shadow-md relative space-around font-bold bg-[url('/crow-prints3.png')]">
       <Menu as="div" className="relative inline-block text-center">
         <div>
           <Menu.Button className="inline-flex w-screen justify-center px-4 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-opacity-75">

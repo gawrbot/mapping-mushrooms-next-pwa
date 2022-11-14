@@ -170,23 +170,27 @@ export default function Articles(props: Props) {
               <h2>Articles on Edible and Poisonous Mushrooms</h2>
               <ul>
                 {props.articles.map((article) => {
-                  return (
-                    <li key={article.id}>
-                      <h2>{article.title}</h2>
+                  if (article.type === 'mushroom') {
+                    return (
+                      <li key={article.id}>
+                        <h2>{article.title}</h2>
 
-                      <Link
-                        href={`/lexicon/${article.slug}`}
-                        key={article.title}
-                      >
-                        <Image
-                          alt={article.title}
-                          src={article.imagePreview}
-                          width={100}
-                          height={100}
-                        />
-                      </Link>
-                    </li>
-                  );
+                        <Link
+                          href={`/lexicon/${article.slug}`}
+                          key={article.title}
+                        >
+                          <Image
+                            alt={article.title}
+                            src={article.imagePreview}
+                            width={100}
+                            height={100}
+                          />
+                        </Link>
+                      </li>
+                    );
+                  } else {
+                    return null;
+                  }
                 })}
               </ul>
             </Accordion.Content>
@@ -506,6 +510,32 @@ export default function Articles(props: Props) {
                     common with the wildlife all around us.
                   </p>
                 </li>
+              </ul>
+              <h2>Articles on the 6 common crows in Austria</h2>
+              <ul>
+                {props.articles.map((article) => {
+                  if (article.type === 'crow') {
+                    return (
+                      <li key={article.id}>
+                        <h2>{article.title}</h2>
+
+                        <Link
+                          href={`/lexicon/${article.slug}`}
+                          key={article.title}
+                        >
+                          <Image
+                            alt={article.title}
+                            src={article.imagePreview}
+                            width={100}
+                            height={100}
+                          />
+                        </Link>
+                      </li>
+                    );
+                  } else {
+                    return null;
+                  }
+                })}
               </ul>
             </Accordion.Content>
           </Accordion.Panel>

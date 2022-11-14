@@ -13,7 +13,7 @@ type Props =
     };
 
 export default function SingleImage(props: Props) {
-  console.log('hi');
+  console.log(props);
   if ('error' in props) {
     return (
       <div className="flex flex-col">
@@ -42,8 +42,7 @@ export default function SingleImage(props: Props) {
         </Head>
 
         <h1 className="text-5xl font-bold mt-0">
-          Image uploaded at about {props.image.longitude.toString().slice(0, 6)}{' '}
-          longitude and {props.image.latitude.toString().slice(0, 6)} latitude
+          Image uploaded by {props.image.usersUsername}
         </h1>
 
         <div className="container px-5 py-10 mx-auto">
