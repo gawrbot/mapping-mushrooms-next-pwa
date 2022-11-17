@@ -5,6 +5,7 @@ import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import Control from 'react-leaflet-custom-control';
+import { setStringifiedCookie } from '../../utils/cookies';
 
 export default function LocationMarker() {
   // Get pretty blue icon
@@ -35,7 +36,14 @@ export default function LocationMarker() {
         .bindPopup(
           "<div><strong>You are here!<strong><br><a href='/upload'>Upload an image in this spot</a></div>",
         )
-        .openPopup();
+        .on('click', function setLocationCookie() {
+          const currentLocationLng = e.latlng.lng;
+          const currentLocationLat = e.latlng.lat;
+
+          setStringifiedCookie('currentLocation', [
+            { longitude: currentLocationLng, latitude: currentLocationLat },
+          ]);
+        });
     });
   }
 

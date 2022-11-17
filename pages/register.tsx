@@ -1,3 +1,4 @@
+import { Button, Label, TextInput } from 'flowbite-react';
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -13,6 +14,7 @@ type Props = {
 export default function Register(props: Props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [errors, setErrors] = useState<{ message: string }[]>([]);
   const router = useRouter();
 
@@ -57,7 +59,7 @@ export default function Register(props: Props) {
         <title>Register</title>
         <meta name="description" content="Register new users" />
       </Head>
-      <h1 className="text-2xl mt-8 mb-10 font-bold">Register</h1>
+      <h1 className="text-2xl mt-5 mb-5 ml-6 font-extrabold">Register</h1>
       {errors.map((error) => {
         return (
           <p className="bg-red text-white p-5" key={error.message}>
@@ -65,13 +67,63 @@ export default function Register(props: Props) {
           </p>
         );
       })}
-      <label>
+      <form
+        className="flex flex-col gap-4"
+        onSubmit={async (event) => {
+          event.preventDefault();
+          await registerHandler();
+        }}
+      >
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="name" value="Name" />
+          </div>
+          <TextInput
+            id="name"
+            required={true}
+            value={name}
+            onChange={(event) => {
+              setName(event.currentTarget.value.toLowerCase());
+            }}
+          />
+        </div>
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="username" value="username" />
+          </div>
+          <TextInput
+            id="username"
+            required={true}
+            value={username}
+            onChange={(event) => {
+              setUsername(event.currentTarget.value);
+            }}
+          />
+        </div>
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="password" value="Password" />
+          </div>
+          <TextInput
+            id="password"
+            type="password"
+            required={true}
+            value={password}
+            onChange={(event) => {
+              setPassword(event.currentTarget.value);
+            }}
+          />
+        </div>
+
+        <Button type="submit">Login</Button>
+      </form>
+      {/* <label>
         Name
         <input
           className="border-2 mx-5 rounded-md"
-          value={username}
+          value={name}
           onChange={(event) => {
-            setUsername(event.currentTarget.value.toLowerCase());
+            setName(event.currentTarget.value.toLowerCase());
           }}
         />
       </label>
@@ -111,7 +163,7 @@ export default function Register(props: Props) {
         href="/"
       >
         Back to home
-      </Link>
+      </Link> */}
     </>
   );
 }

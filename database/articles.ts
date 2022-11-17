@@ -5,23 +5,9 @@ export type Article = {
   title: string;
   slug: string;
   imagePreview: string;
+  content: string;
   type: string;
 };
-
-export async function createAllArticles(
-  title: string,
-  slug: string,
-  image: string,
-  type: string,
-) {
-  const [article] = await sql<Article[]>`
-  INSERT INTO articles
-    (title, slug, image_preview, type)
-  VALUES
-    (${title}, ${slug}, ${image}, ${type})
-  `;
-  return article;
-}
 
 export async function getAllArticles() {
   const articles = await sql<Article[]>`

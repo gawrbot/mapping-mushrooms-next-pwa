@@ -21,7 +21,7 @@ export default function SingleImage(props: Props) {
           <title>Image not found</title>
           <meta name="description" content="Article not found" />
         </Head>
-        <h1 className="text-5xl font-bold mb-10">{props.error}</h1>
+        <h1 className="text-2xl mt-5 ml-6 font-bold">{props.error}</h1>
         <p>
           Sorry, please see{' '}
           <span className="underline decoration-solid">
@@ -40,10 +40,6 @@ export default function SingleImage(props: Props) {
             content={`Image with id ${props.image.id}`}
           />
         </Head>
-
-        <h1 className="text-5xl font-bold mt-0">
-          Image uploaded by {props.image.usersUsername}
-        </h1>
 
         <div className="container px-5 py-10 mx-auto">
           <div>

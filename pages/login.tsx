@@ -1,3 +1,4 @@
+import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -67,42 +68,43 @@ export default function Login(props: Props) {
           </p>
         );
       })}
-      <label>
-        Username
-        <input
-          className="border-2 mx-5 rounded-md"
-          value={username}
-          onChange={(event) => {
-            setUsername(event.currentTarget.value.toLowerCase());
-          }}
-        />
-      </label>
-      <br />
-      <label>
-        Password
-        <input
-          type="password"
-          className="border-2 mx-5 rounded-md"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.currentTarget.value);
-          }}
-        />
-      </label>
-      <button
-        className="bg-slate-700 rounded-md text-white py-1 px-3 mt-5 text-center"
-        onClick={async () => {
+      <form
+        className="flex flex-col gap-4"
+        onSubmit={async (event) => {
+          event.preventDefault();
           await loginHandler();
         }}
       >
-        Login
-      </button>
-      <Link
-        className="bg-slate-500 rounded-md text-white py-1 px-3 my-3 text-center"
-        href="/"
-      >
-        Back to home
-      </Link>
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="username" value="username" />
+          </div>
+          <TextInput
+            id="username"
+            required={true}
+            value={username}
+            onChange={(event) => {
+              setUsername(event.currentTarget.value.toLowerCase());
+            }}
+          />
+        </div>
+        <div>
+          <div className="mb-2 block">
+            <Label htmlFor="password" value="Password" />
+          </div>
+          <TextInput
+            id="password"
+            type="password"
+            required={true}
+            value={password}
+            onChange={(event) => {
+              setPassword(event.currentTarget.value);
+            }}
+          />
+        </div>
+
+        <Button type="submit">Login</Button>
+      </form>
     </>
   );
 }

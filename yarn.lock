@@ -1161,6 +1161,11 @@
   dependencies:
     client-only "^0.0.1"
 
+"@heroicons/react@^2.0.13":
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.13.tgz#9b1cc54ff77d6625c9565efdce0054a4bcd9074c"
+  integrity sha512-iSN5XwmagrnirWlYEWNPdCDj9aRYVD/lnK3JlsC9/+fqGF80k8C7rl+1HCvBX0dBoagKqOFBs6fMhJJ1hOg1EQ==
+
 "@humanwhocodes/config-array@^0.11.6":
   version "0.11.6"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.6.tgz#6a51d603a3aaf8d4cf45b42b3f2ac9318a4adc4b"
@@ -1726,10 +1731,10 @@
     "@typescript-eslint/types" "5.40.1"
     eslint-visitor-keys "^3.3.0"
 
-"@upleveled/eslint-config-upleveled@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@upleveled/eslint-config-upleveled/-/eslint-config-upleveled-3.1.0.tgz#459cb03254e9574f81285b9def0594b8e8c2a670"
-  integrity sha512-/96QDp7iF7tCWQLdWwBWra7hD9mBJiFevF4oi/HWoV7zCzs++4OH7GawaBu1d7/CJv2vGgu3dc+3uVVZAW8Fiw==
+"@upleveled/eslint-config-upleveled@^3.3.9":
+  version "3.3.9"
+  resolved "https://registry.yarnpkg.com/@upleveled/eslint-config-upleveled/-/eslint-config-upleveled-3.3.9.tgz#ea2e40fd0863846a02c9672640eadcfb96de0557"
+  integrity sha512-otisSxKrtGLJZgfZaUF8H0vR7ESRQtNv6JFuH8iOe7xWVPAoyh0KnsTDCJwcD0vHXXZbqtAUpZzy+OPybiQzjw==
 
 "@upleveled/eslint-plugin-upleveled@2.1.6":
   version "2.1.6"
@@ -3610,6 +3615,10 @@ has@^1.0.3:
   integrity sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
   dependencies:
     function-bind "^1.1.1"
+
+"heroicons@https://github.com/tailwindlabs/heroicons.git":
+  version "2.0.13"
+  resolved "https://github.com/tailwindlabs/heroicons.git#1511059c0584aa0d2690cb89c01b183c4ae011d7"
 
 homedir-polyfill@^1.0.1:
   version "1.0.3"

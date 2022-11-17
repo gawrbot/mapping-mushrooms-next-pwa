@@ -18,7 +18,7 @@ export default function UserProfile(props: Props) {
           <title>User not found</title>
           <meta name="description" content="User not found" />
         </Head>
-        <h1 className="text-2xl mt-8 mb-10 font-bold">404 - User not found</h1>
+        <h1 className="text-2xl mt-5 ml-6 font-bold">404 - User not found</h1>
       </>
     );
   }
@@ -32,7 +32,7 @@ export default function UserProfile(props: Props) {
           content={`${props.user.username} Public profile`}
         />
       </Head>
-      <h1 className="text-2xl mt-8 mb-10 font-bold">
+      <h1 className="text-2xl mt-5 ml-6 font-bold">
         {props.user.username}s Public Profile
       </h1>
       <p>Id: {props.user.id}</p>
@@ -42,14 +42,14 @@ export default function UserProfile(props: Props) {
         <div className="flex flex-wrap -m-4">
           {props.images?.map((image) => {
             return (
-              <div key={image.image} className="lg:w-1/3 p-4 w-1/2">
+              <div key={image.image} className="lg:w-1/5 p-4 w-1/2">
                 <Link href={`${props.user?.username}/${image.id}`}>
                   <Image
-                    className="object-cover object-center w-full h-full block"
+                    className="object-cover object-center block"
                     alt={`an image in the gallery of ${props.user?.username}s public profile`}
                     src={image.image}
-                    width={250}
-                    height={250}
+                    width={100}
+                    height={100}
                   />
                 </Link>
                 <p className="font-normal">

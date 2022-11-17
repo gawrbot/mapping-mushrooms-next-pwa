@@ -6,9 +6,8 @@ import { useState } from 'react';
 import { Article, getAllArticles } from '../database/articles';
 import { getUserBySessionToken } from '../database/users';
 import { getParsedCookie } from '../utils/cookies';
-import { ImageResponseBody } from './api/images';
 
-// Maybe as Modal: https://flowbite-react.com/modal
+// austauschen: https://flowbite-react.com/modal
 
 type Props = {
   user: { id: number; username: string };

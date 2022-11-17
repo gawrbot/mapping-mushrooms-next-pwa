@@ -3,7 +3,7 @@ import { sql } from './connect';
 export type User = {
   id: number;
   username: string;
-  passwordHash: string;
+  passwordHash?: string;
 };
 
 export async function getUserByUsername(username: string) {
