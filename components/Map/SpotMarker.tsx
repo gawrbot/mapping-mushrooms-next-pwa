@@ -1,9 +1,8 @@
-import { Dialog } from '@headlessui/react';
 import L from 'leaflet';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import { setStringifiedCookie } from '../../utils/cookies';
 
@@ -12,6 +11,7 @@ export default function SpotMarker() {
   // Get pretty blue icon
   useEffect(() => {
     (async function init() {
+      // @ts-ignore
       delete L.Icon.Default.prototype._getIconUrl;
 
       await L.Icon.Default.mergeOptions({

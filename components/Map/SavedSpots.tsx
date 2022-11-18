@@ -14,6 +14,7 @@ export default function LocationMarker() {
   // Get pretty blue icon
   useEffect(() => {
     (async function init() {
+      // @ts-ignore
       delete L.Icon.Default.prototype._getIconUrl;
 
       await L.Icon.Default.mergeOptions({

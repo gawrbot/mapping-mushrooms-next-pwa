@@ -40,7 +40,7 @@ export default async function handler(
     // 3. check if the hash and the password match
     const isValidPassword = await bcrypt.compare(
       request.body.password,
-      user.passwordHash,
+      user.passwordHash as string,
     );
 
     if (!isValidPassword) {

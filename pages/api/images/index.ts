@@ -82,9 +82,9 @@ export default async function handler(
 
     const images = await getAllImages();
 
-    // if ('images' in images) {
-    response.status(200).json(images);
-    // }
+    if ('images' in images) {
+      response.status(200).json(images as ImageResponseBody);
+    }
     // else {
     //   response
     //     .status(304)

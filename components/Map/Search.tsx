@@ -11,17 +11,20 @@ import { useMap } from 'react-leaflet';
 // make new leaflet element
 export default function Search() {
   const map = useMap();
-  const provider = new OpenStreetMapProvider();
 
+  // @ts-ignore
   useEffect(() => {
+    const provider = new OpenStreetMapProvider();
+    // @ts-ignore
     const searchControl = new GeoSearchControl({
       provider,
       style: 'bar',
     });
 
     map.addControl(searchControl);
+    // @ts-ignore
     return () => map.removeControl(searchControl);
-  }, []);
+  }, [map]);
 
   return null;
 }
