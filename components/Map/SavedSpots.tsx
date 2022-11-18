@@ -38,7 +38,7 @@ export default function LocationMarker() {
     }
     getImagesAndCoordinates().catch(() => {});
   }, []);
-  console.log('image', images);
+
   return (
     <div>
       {images.length > 0

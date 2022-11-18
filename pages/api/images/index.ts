@@ -7,17 +7,15 @@ import { getValidSessionByToken } from '../../../database/sessions';
 export type ImageResponseBody =
   | { errors: { message: string }[] }
   | {
-      image: {
-        date?: number;
-        time?: number;
-        image?: string;
-        longitude?: number;
-        latitude?: number;
-        userId?: number;
-        userName?: string;
-        note?: string;
-        articleId?: number;
-      };
+      date?: number;
+      time?: number;
+      image?: string;
+      longitude?: number;
+      latitude?: number;
+      userId?: number;
+      userName?: string;
+      note?: string;
+      articleId?: number;
     };
 
 export default async function handler(
@@ -25,27 +23,6 @@ export default async function handler(
   response: NextApiResponse<ImageResponseBody>,
 ) {
   if (request.method === 'POST') {
-    //   // 1. make sure the data exist
-    //   if (
-    //     typeof request.body.image !== 'string' ||
-    //     typeof request.body.longitude !== 'number' ||
-    //     typeof request.body.latitude !== 'number' ||
-    //     typeof request.body.userId !== 'number' ||
-    //     // typeof request.body.note !== 'string' ||
-    //     // typeof request.body.articleId !== 'number' ||
-    //     !request.body.image ||
-    //     !request.body.longitude ||
-    //     !request.body.latitude ||
-    //     !request.body.userId
-    //     // !request.body.note ||
-    //     // !request.body.articleId
-    //   ) {
-    //     return response
-    //       .status(400)
-    //       .json({ errors: [{ message: 'Necessary data not provided' }] });
-    //   }
-
-    // 4. sql query to create the record
     const newImage = await createImage(
       request.body.image,
       request.body.longitude,
@@ -57,18 +34,15 @@ export default async function handler(
     );
 
     response.status(200).json({
-      image: {
-        image: newImage?.image,
-        longitude: newImage?.longitude,
-        latitude: newImage?.latitude,
-        userId: newImage?.userId,
-        userName: newImage?.usersUsername,
-        note: newImage?.note,
-        articleId: newImage?.articleId,
-      },
+      image: newImage?.image,
+      longitude: newImage?.longitude,
+      latitude: newImage?.latitude,
+      userId: newImage?.userId,
+      userName: newImage?.usersUsername,
+      note: newImage?.note,
+      articleId: newImage?.articleId,
     });
   } else if (request.method === 'GET') {
-    // 1. Get the cookie from the request and use it to validate the session
     const session =
       request.cookies.sessionToken &&
       (await getValidSessionByToken(request.cookies.sessionToken));
@@ -82,14 +56,7 @@ export default async function handler(
 
     const images = await getAllImages();
 
-    if ('images' in images) {
-      response.status(200).json(images as ImageResponseBody);
-    }
-    // else {
-    //   response
-    //     .status(304)
-    //     .json({ errors: [{ message: 'Up to date' }] });
-    // }
+    response.status(200).json(images as ImageResponseBody);
   } else {
     response.status(401).json({ errors: [{ message: 'Method not allowed' }] });
   }
