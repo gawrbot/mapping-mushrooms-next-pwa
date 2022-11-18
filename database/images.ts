@@ -20,8 +20,8 @@ export async function getAllImages() {
     image,
     date,
     date_trunc('second', date::timestamp::time) AS time,
-    ST_X(ST_TRANSFORM(coordinates,4674)) AS longitude,
-    ST_Y(ST_TRANSFORM(coordinates,4674)) AS latitude,
+    longitude,
+    latitude,
     users_id,
     users_username,
     note,
@@ -40,8 +40,8 @@ export async function getImagesByUserId(userId: number) {
     image,
     date,
     date_trunc('second', date::timestamp::time) AS time,
-    ST_X(ST_TRANSFORM(coordinates,4674)) AS longitude,
-    ST_Y(ST_TRANSFORM(coordinates,4674)) AS latitude,
+    longitude,
+    latitude,
     users_id,
     users_username,
     note,
@@ -55,26 +55,6 @@ export async function getImagesByUserId(userId: number) {
   return images;
 }
 
-export async function getImageByCoordinates(
-  longitude: number,
-  latitude: number,
-) {
-  if (!longitude) return undefined;
-  if (!latitude) return undefined;
-
-  const [image] = await sql<ImageType[]>`
-  SELECT
-    *
-  FROM
-    images
-  WHERE
-    ST_X(ST_Transform(coordinates, 4326)) = ${longitude} AND
-    ST_Y(ST_Transform(coordinates, 4326)) = ${latitude}
-  `;
-
-  return image;
-}
-
 export async function getImageById(imageId: number) {
   if (!imageId) return undefined;
 
@@ -84,8 +64,8 @@ export async function getImageById(imageId: number) {
     image,
     date,
     date_trunc('second', date::timestamp::time) AS time,
-    ST_X(ST_TRANSFORM(coordinates,4674)) AS longitude,
-    ST_Y(ST_TRANSFORM(coordinates,4674)) AS latitude,
+    longitude,
+    latitude,
     users_id,
     users_username,
     note,
@@ -111,9 +91,9 @@ export async function createImage(
   // if (!note) {
   const [newImage] = await sql<ImageType[]>`
   INSERT INTO images
-    (image, coordinates, users_id, users_username, note, articles_id)
+    (image, longitude, latitude, users_id, users_username, note, articles_id)
   VALUES
-    (${image}, ST_SetSRID(ST_MakePoint(${longitude}, ${latitude}), 4326), ${userId}, ${userName}, ${note}, ${articleId})
+    (${image}, ${longitude}, ${latitude}, ${userId}, ${userName}, ${note}, ${articleId})
   RETURNING
     *
   `;

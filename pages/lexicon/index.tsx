@@ -66,11 +66,8 @@ export default function Lexicon(props: Props) {
                         key="mushrooms"
                         className="flex mb-4 items-center p-3 justify-center rounded-md border-2 border-black"
                       >
-                        <h3 className="text-lg mt-3 mb-1 font-bold">
-                          🍄{' '}
-                          <span className="underline decoration-solid">
-                            An intro to Mushrooms
-                          </span>
+                        <h3 className="text-lg mt-3 mb-1 font-bold underline decoration-solid">
+                          An intro to Mushrooms
                         </h3>
                       </li>
                     </Link>

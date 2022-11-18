@@ -62,9 +62,9 @@ export default function SingleArticle(props: Props) {
           content={`Article on ${props.article.title}`}
         />
       </Head>
-      <div className="flex h-[80vh] lg:flex-row md:flex-col items-center bg-white border rounded-lg shadow-md hover:bg-gray-100">
+      <div className="flex h-[80vh] flex-col lg:flex-row flex-col items-center bg-white border rounded-lg shadow-md hover:bg-gray-100">
         <img
-          className="aspect-[3/4] object-cover max-h-[100%] rounded-lg w-1/3"
+          className="object-cover max-h-[100%] rounded-lg w-1/2"
           src={props.article.imagePreview}
           alt={`Article on ${props.article.title}`}
         />

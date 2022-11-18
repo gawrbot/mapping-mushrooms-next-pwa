@@ -1,4 +1,4 @@
-import { Button, Label, TextInput } from 'flowbite-react';
+import { Button, Card, Label, TextInput } from 'flowbite-react';
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -54,117 +54,74 @@ export default function Register(props: Props) {
   }
 
   return (
-    <>
+    <div className="pt-20 bg-[#95b0b6]">
       <Head>
         <title>Register</title>
         <meta name="description" content="Register new users" />
       </Head>
-      <h1 className="text-2xl mt-5 mb-5 ml-6 font-extrabold">Register</h1>
-      {errors.map((error) => {
-        return (
-          <p className="bg-red text-white p-5" key={error.message}>
-            ERROR: {error.message}
-          </p>
-        );
-      })}
-      <form
-        className="flex flex-col gap-4"
-        onSubmit={async (event) => {
-          event.preventDefault();
-          await registerHandler();
-        }}
-      >
-        <div>
-          <div className="mb-2 block">
-            <Label htmlFor="name" value="Name" />
-          </div>
-          <TextInput
-            id="name"
-            required={true}
-            value={name}
-            onChange={(event) => {
-              setName(event.currentTarget.value.toLowerCase());
-            }}
-          />
-        </div>
-        <div>
-          <div className="mb-2 block">
-            <Label htmlFor="username" value="username" />
-          </div>
-          <TextInput
-            id="username"
-            required={true}
-            value={username}
-            onChange={(event) => {
-              setUsername(event.currentTarget.value);
-            }}
-          />
-        </div>
-        <div>
-          <div className="mb-2 block">
-            <Label htmlFor="password" value="Password" />
-          </div>
-          <TextInput
-            id="password"
-            type="password"
-            required={true}
-            value={password}
-            onChange={(event) => {
-              setPassword(event.currentTarget.value);
-            }}
-          />
-        </div>
-
-        <Button type="submit">Login</Button>
-      </form>
-      {/* <label>
-        Name
-        <input
-          className="border-2 mx-5 rounded-md"
-          value={name}
-          onChange={(event) => {
-            setName(event.currentTarget.value.toLowerCase());
+      <Card className="lg:w-1/3 mx-auto">
+        <h1 className="text-2xl font-extrabold">Register</h1>
+        {errors.map((error) => {
+          return (
+            <p className="bg-red text-white p-5" key={error.message}>
+              ERROR: {error.message}
+            </p>
+          );
+        })}
+        <form
+          className="flex flex-col gap-4"
+          onSubmit={async (event) => {
+            event.preventDefault();
+            await registerHandler();
           }}
-        />
-      </label>
-      <br />
-      <label>
-        Username
-        <input
-          className="border-2 mx-5 rounded-md"
-          value={username}
-          onChange={(event) => {
-            setUsername(event.currentTarget.value.toLowerCase());
-          }}
-        />
-      </label>
-      <br />
-      <label>
-        Password
-        <input
-          type="password"
-          className="border-2 mx-5 rounded-md"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.currentTarget.value);
-          }}
-        />
-      </label>
-      <button
-        className="bg-slate-700 rounded-md text-white py-1 px-3 mt-5 text-center"
-        onClick={async () => {
-          await registerHandler();
-        }}
-      >
-        Register
-      </button>
-      <Link
-        className="bg-slate-500 rounded-md text-white py-1 px-3 my-3 text-center"
-        href="/"
-      >
-        Back to home
-      </Link> */}
-    </>
+        >
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="name" value="Name" />
+            </div>
+            <TextInput
+              id="name"
+              required={true}
+              value={name}
+              onChange={(event) => {
+                setName(event.currentTarget.value.toLowerCase());
+              }}
+            />
+          </div>
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="username" value="username" />
+            </div>
+            <TextInput
+              id="username"
+              required={true}
+              value={username}
+              onChange={(event) => {
+                setUsername(event.currentTarget.value);
+              }}
+            />
+          </div>
+          <div>
+            <div className="mb-2 block">
+              <Label htmlFor="password" value="Password" />
+            </div>
+            <TextInput
+              id="password"
+              type="password"
+              required={true}
+              value={password}
+              onChange={(event) => {
+                setPassword(event.currentTarget.value);
+              }}
+            />
+          </div>
+          <button className="bg-[#7d4d2b] rounded-md text-lg text-white px-2 py-2 my-2 text-center">
+            Register
+          </button>
+          {/* <Button type="submit">Login</Button> */}
+        </form>
+      </Card>
+    </div>
   );
 }
 

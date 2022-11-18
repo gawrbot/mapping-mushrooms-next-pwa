@@ -7,8 +7,6 @@ import { Article, getAllArticles } from '../database/articles';
 import { getUserBySessionToken } from '../database/users';
 import { getParsedCookie } from '../utils/cookies';
 
-// austauschen: https://flowbite-react.com/modal
-
 type Props = {
   user: { id: number; username: string };
   articles: Article[];
@@ -63,12 +61,13 @@ export default function Upload(props: Props) {
   }
 
   return (
-    <div>
+    <div className="pt-20 bg-[#95b0b6]">
       <form
         onSubmit={async (event) => {
           event.preventDefault();
           await uploadToDatabaseHandler();
         }}
+        className="lg:w-1/3 mx-auto"
       >
         <Label htmlFor="file" value="Upload file" />
         <FileInput id="file" required={true} onChange={uploadImage} />
@@ -114,7 +113,12 @@ export default function Upload(props: Props) {
           }}
         />
 
-        <Button onClick={uploadToDatabaseHandler}>Confirm upload</Button>
+        <button
+          className="bg-[#7d4d2b] rounded-md text-lg text-white px-2 py-2 my-2 text-center"
+          onClick={uploadToDatabaseHandler}
+        >
+          Confirm upload
+        </button>
       </form>
     </div>
   );

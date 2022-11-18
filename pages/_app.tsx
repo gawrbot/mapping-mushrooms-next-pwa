@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }: any) {
   return (
     <Layout user={user}>
       {pageLoading ? (
-        <div className="text-center">
+        <div className="text-center my-auto">
           <Spinner aria-label="loading spinner" />
         </div>
       ) : (
