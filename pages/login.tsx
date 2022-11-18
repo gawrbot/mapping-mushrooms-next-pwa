@@ -102,7 +102,12 @@ export default function Login(props: Props) {
               }}
             />
           </div>
-          <button className="bg-[#7d4d2b] rounded-md text-lg text-white px-2 py-2 my-2 text-center">
+          <button
+            onClick={async () => {
+              await loginHandler();
+            }}
+            className="bg-[#7d4d2b] rounded-md text-lg text-white px-2 py-2 my-2 text-center"
+          >
             Login
           </button>
           {/* <Button type="submit">Login</Button> */}
