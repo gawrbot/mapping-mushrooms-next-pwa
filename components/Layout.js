@@ -4,7 +4,7 @@ import Header from './Header';
 
 export default function Layout(props) {
   return (
-    <div className="bg-[#95b0b6] flex flex-col justify-between min-h-[100vh]">
+    <>
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -32,13 +32,15 @@ export default function Layout(props) {
         <link rel="apple-touch-icon" href="/apple-icon.png" />
         <meta name="theme-color" content="#317EFB" />
       </Head>
-      <Header user={props.user} />
+      <div className="bg-[#95b0b6] flex flex-col justify-between min-h-[100vh]">
+        <Header user={props.user} />
 
-      <main className="flex flex-col font-amiko px-4 lg:px-5">
-        {props.children}
-      </main>
+        <main className="flex flex-col font-amiko px-4 lg:px-5">
+          {props.children}
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }

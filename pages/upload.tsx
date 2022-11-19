@@ -75,7 +75,7 @@ export default function Upload(props: Props) {
           <CldImage
             width="100"
             height="100"
-            src={image.slice(50)}
+            src={image}
             sizes="100vw"
             alt="current image upload"
           />
