@@ -33,7 +33,7 @@ export default function Lexicon(props: Props) {
     );
   }
   return (
-    <>
+    <div className="pt-20 bg-[#95b0b6]">
       <h1 className="text-2xl mt-5 ml-6 font-bold">Lexicon </h1>
       <div className="w-full px-4 py-8">
         <div className="text-white">
@@ -164,7 +164,7 @@ export default function Lexicon(props: Props) {
           </Disclosure>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

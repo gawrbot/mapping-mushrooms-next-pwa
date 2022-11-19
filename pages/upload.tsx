@@ -1,6 +1,6 @@
-import { Button, FileInput, Label, Select, Textarea } from 'flowbite-react';
+import { FileInput, Label, Select, Textarea } from 'flowbite-react';
 import { GetServerSidePropsContext } from 'next';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { Article, getAllArticles } from '../database/articles';
@@ -72,11 +72,12 @@ export default function Upload(props: Props) {
         <Label htmlFor="file" value="Upload file" />
         <FileInput id="file" required={true} onChange={uploadImage} />
         {typeof image !== 'undefined' ? (
-          <Image
+          <CldImage
+            width="100"
+            height="100"
+            src={image.slice(50)}
+            sizes="100vw"
             alt="current image upload"
-            src={image}
-            width={100}
-            height={100}
           />
         ) : null}
         <Label

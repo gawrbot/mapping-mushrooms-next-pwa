@@ -24,7 +24,7 @@ export default function IntroMushrooms(props: Props) {
     );
   }
   return (
-    <div className="pt-20 bg-[#95b0b6] ">
+    <div className="pt-20 bg-[#95b0b6]">
       <Head>
         <title>Intro to Mushrooms</title>
         <meta name="description" content="Article on Mushrooms in general" />
@@ -35,7 +35,7 @@ export default function IntroMushrooms(props: Props) {
           src="/mushrooms-intro.jpg"
           alt="closeup of tintling mushrooms"
         />
-        <div className="flex flex-col justify-between p-4 leading-normal vh-100 max-h-[100%] overflow-scroll">
+        <div className="flex flex-col justify-between p-4 leading-normal vh-100 max-h-[100%] overflow-y-scroll">
           <h1 className="text-2xl font-bold tracking-tight text-black">
             Intro to Mushrooms
           </h1>

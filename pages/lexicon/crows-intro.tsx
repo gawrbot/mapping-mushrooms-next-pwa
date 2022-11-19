@@ -34,7 +34,7 @@ export default function IntroCrows(props: Props) {
           src="/crows-intro.jpg"
           alt="two hooded crows on blue background"
         />
-        <div className="flex flex-col justify-between p-4 leading-normal vh-100 max-h-[100%] overflow-scroll">
+        <div className="flex flex-col justify-between p-4 leading-normal vh-100 max-h-[100%] overflow-y-scroll">
           <h1 className="text-2xl font-bold tracking-tight text-black">
             Intro to Crows
           </h1>

@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
+import { CldImage } from 'next-cloudinary';
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { getImagesByUserId, ImageType } from '../database/images';
@@ -53,12 +53,13 @@ export default function PrivateProfile(props: Props) {
                     className="lg:w-1/3 p-4 w-full flex flex-col items-center"
                   >
                     <Link href={`/profile/${props.user?.username}/${image.id}`}>
-                      <Image
-                        className="object-none block aspect-square rounded-lg"
+                      <CldImage
+                        width="250"
+                        height="250"
+                        src={image.image.slice(50)}
+                        sizes="100vw"
                         alt={`an image in the gallery of ${props.user?.username}'s profile`}
-                        src={image.image}
-                        width={250}
-                        height={250}
+                        className="object-none block aspect-square rounded-lg"
                       />
                     </Link>
 

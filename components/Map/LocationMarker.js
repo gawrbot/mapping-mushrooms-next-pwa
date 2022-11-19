@@ -34,9 +34,7 @@ export default function LocationMarker() {
       const marker = L.marker(e.latlng);
       marker
         .addTo(map)
-        .bindPopup(
-          "<div><strong>You are here!<strong><br><a href='/upload'>Upload an image in this spot</a></div>",
-        )
+
         .on('click', function setLocationCookie() {
           const currentLocationLng = e.latlng.lng;
           const currentLocationLat = e.latlng.lat;
@@ -44,19 +42,22 @@ export default function LocationMarker() {
           setStringifiedCookie('currentLocation', [
             { longitude: currentLocationLng, latitude: currentLocationLat },
           ]);
-        });
+        })
+        .bindPopup(
+          "<div><strong>You are here!<strong><br><a href='/upload'>Upload an image in this spot</a></div>",
+        );
     });
   }
 
   return (
     <Control prepend position="bottomright">
       <button
-        className="rounded-full bg-sky-500 p-4 text-white font-bold text-lg"
+        className="rounded-full bg-[#324b50] aspect-square p-2 text-white font-bold text-lg border-5"
         onClick={() => {
           clickHandlerLocation();
         }}
       >
-        My Location
+        Me
       </button>
     </Control>
   );

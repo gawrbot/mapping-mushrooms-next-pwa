@@ -2,7 +2,7 @@ import L from 'leaflet';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Marker, Popup } from 'react-leaflet';
@@ -27,6 +27,7 @@ export default function LocationMarker() {
     });
   }, []);
 
+  // Get all saved images
   useEffect(() => {
     async function getImagesAndCoordinates() {
       const imagesResponse = await fetch('/api/images');
@@ -46,11 +47,12 @@ export default function LocationMarker() {
             <Marker key={image.id} position={[image.latitude, image.longitude]}>
               <Popup key={image.id}>
                 <Link href={`profile/${image.usersUsername}/${image.id}`}>
-                  <Image
+                  <CldImage
+                    width="200"
+                    height="200"
+                    src={image.image.slice(50)}
+                    sizes="100vw"
                     alt={`image coordinates: ${image.longitude}, ${image.latitude}`}
-                    src={image.image}
-                    width={100}
-                    height={100}
                   />
                 </Link>
               </Popup>

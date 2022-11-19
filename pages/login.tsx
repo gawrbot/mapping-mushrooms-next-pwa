@@ -63,7 +63,7 @@ export default function Login(props: Props) {
         <h1 className="text-2xl font-bold">Login</h1>
         {errors.map((error) => {
           return (
-            <p className="bg-red text-white p-5" key={error.message}>
+            <p className="text-red-500 font-bold p-5" key={error.message}>
               ERROR: {error.message}
             </p>
           );

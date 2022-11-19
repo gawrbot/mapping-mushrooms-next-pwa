@@ -23,7 +23,7 @@ export default function Header(props) {
           <span className="text-white text-lg">Home</span>
         </Navbar.Link>
         {props.user ? (
-          <div className="flex lg:space-x-5 lg:flex-row md:space-x-3 md:flex-row flex-col text-white">
+          <div className="flex lg:space-x-8 lg:flex-row md:space-x-3 md:flex-row flex-col text-white">
             <Navbar.Link href="/map">
               <span className="text-white text-lg">Map</span>
             </Navbar.Link>
@@ -38,7 +38,7 @@ export default function Header(props) {
             </Navbar.Link>
           </div>
         ) : (
-          <div className="flex lg:space-x-5 lg:flex-row md:flex-row flex-col text-white">
+          <div className="flex lg:space-x-8 lg:flex-row md:flex-row flex-col text-white">
             <Navbar.Link href="/register">
               <span className="text-white text-lg">Register</span>
             </Navbar.Link>

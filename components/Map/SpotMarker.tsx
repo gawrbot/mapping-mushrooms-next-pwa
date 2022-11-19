@@ -51,10 +51,6 @@ export default function SpotMarker() {
   map.on('click', function (e) {
     L.marker([e.latlng.lat, e.latlng.lng])
       .addTo(map)
-      .bindPopup(
-        "<div><strong>You clicked here!</strong><br/><a href='/upload'>Upload an image in this spot</a></div>",
-      )
-      .openPopup()
       .on('click', function setLocationCookie() {
         const currentLocationLng = e.latlng.lng;
         const currentLocationLat = e.latlng.lat;
@@ -62,7 +58,11 @@ export default function SpotMarker() {
         setStringifiedCookie('currentLocation', [
           { longitude: currentLocationLng, latitude: currentLocationLat },
         ]);
-      });
+      })
+      .bindPopup(
+        "<div><strong>You clicked here!</strong><br/><a href='/upload'>Upload an image in this spot</a></div>",
+      )
+      .openPopup();
   });
 
   return null;

@@ -68,7 +68,7 @@ export default function SingleArticle(props: Props) {
           src={props.article.imagePreview}
           alt={`Article on ${props.article.title}`}
         />
-        <div className="flex flex-col justify-between p-4 leading-normal vh-100 max-h-[100%] overflow-scroll">
+        <div className="flex flex-col justify-between p-4 leading-normal vh-100 max-h-[100%] overflow-y-scroll">
           <h1 className="text-2xl font-bold tracking-tight text-black">
             {props.article.title}
           </h1>

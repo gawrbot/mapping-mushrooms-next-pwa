@@ -1,4 +1,5 @@
 import { GetServerSidePropsContext } from 'next';
+import { CldImage } from 'next-cloudinary';
 import Head from 'next/head';
 import Link from 'next/link';
 import { getImageById, ImageType } from '../../../database/images';
@@ -40,12 +41,16 @@ export default function SingleImage(props: Props) {
           />
         </Head>
         <div className="flex lg:h-[60vh] flex-col lg:flex-row flex-col items-center bg-white border rounded-lg shadow-md hover:bg-gray-100">
-          <img
+          <CldImage
             className="object-contain max-h-[100%] rounded-lg lg:w-1/3 w-2/3"
-            src={props.image.image}
+            width="200"
+            height="200"
+            src={props.image.image.slice(50)}
+            sizes="100vw"
             alt={`Upload with id ${props.image.id}`}
           />
-          <div className="flex flex-col justify-between p-4 leading-normal vh-100 max-h-[100%] overflow-scroll lg:min-w-[66%]">
+
+          <div className="flex flex-col justify-between p-4 leading-normal vh-100 max-h-[100%] overflow-y-scroll lg:min-w-[66%]">
             <h1 className="text-2xl font-bold tracking-tight text-black">
               Image
             </h1>
