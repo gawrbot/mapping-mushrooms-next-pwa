@@ -10,7 +10,7 @@ export type ImageType = {
   userId: number;
   usersUsername: string;
   note?: string;
-  articleId?: number;
+  articlesId?: number;
 };
 
 export async function getAllImages() {

@@ -40,13 +40,13 @@ export default function Lexicon(props: Props) {
           <Disclosure>
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-2/3 justify-between rounded-t-lg bg-[#7d4d2b] px-4 py-2 text-left text-sm font-medium hover:mediumgreen focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75">
+                <Disclosure.Button className="flex lg:w-2/3 w-full justify-between rounded-t-lg bg-[#7d4d2b] px-4 py-2 text-left text-sm font-medium hover:mediumgreen focus:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-opacity-75">
                   <h2 className="text-xl font-extrabold">Mushrooms</h2>
                   <ChevronUpIcon
                     className={`${open ? 'rotate-180 transform' : ''} h-5 w-5`}
                   />
                 </Disclosure.Button>
-                <Disclosure.Panel className="p-4 text-sm text-black border-4 border-[#7d4d2b] w-2/3 rounded-b-lg">
+                <Disclosure.Panel className="p-4 text-sm text-black bg-[#324b50] lg:w-2/3 w-full rounded-b-lg">
                   <div className="bg-red-600 rounded-md text-white py-2 px-2 mb-4 text-center">
                     <p className="mb-3">
                       Please be very careful when collecting mushrooms. This
@@ -64,10 +64,10 @@ export default function Lexicon(props: Props) {
                     <Link href="/lexicon/mushrooms-intro">
                       <li
                         key="mushrooms"
-                        className="flex mb-4 items-center p-3 justify-center rounded-md border-2 border-black"
+                        className="flex mb-4 items-center p-3 justify-center rounded-md border-2 border-white text-white"
                       >
                         <h3 className="text-lg mt-3 mb-1 font-bold underline decoration-solid">
-                          An intro to Mushrooms
+                          About Mushrooms
                         </h3>
                       </li>
                     </Link>
@@ -80,7 +80,7 @@ export default function Lexicon(props: Props) {
                           >
                             <li
                               key={article.id}
-                              className="flex mb-4 items-center border-2 border-black p-3 rounded-md"
+                              className="flex mb-4 items-center border-2 text-white border-white p-3 rounded-md"
                             >
                               <Image
                                 alt={article.title}
@@ -90,7 +90,7 @@ export default function Lexicon(props: Props) {
                                 className="mr-2"
                               />
 
-                              <h3 className="text-lg mt-3 mb-1 font-bold">
+                              <h3 className="lg:text-lg text-xs mt-3 mb-1 font-bold">
                                 {article.title}
                               </h3>
                             </li>
@@ -108,22 +108,22 @@ export default function Lexicon(props: Props) {
           <Disclosure as="div" className="mt-2">
             {({ open }) => (
               <>
-                <Disclosure.Button className="flex w-2/3 justify-between rounded-t-lg bg-[#7d4d2b] px-4 py-2 text-left text-white text-sm font-medium hover:bg-mediumgreen focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                <Disclosure.Button className="flex lg:w-2/3 w-full justify-between rounded-t-lg bg-[#7d4d2b] px-4 py-2 text-left text-white text-sm font-medium hover:bg-mediumgreen focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                   <h2 className="text-xl font-extrabold">Crows</h2>
                   <ChevronUpIcon
                     className={`${open ? 'rotate-180 transform' : ''} h-5 w-5 `}
                   />
                 </Disclosure.Button>
-                <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-black border-4 border-[#7d4d2b] w-2/3 rounded-b-lg">
+                <Disclosure.Panel className="px-4 pt-4 pb-2 text-sm text-white bg-[#324b50] lg:w-2/3 w-full rounded-b-lg">
                   <ul className="list-inside">
                     <Link href="/lexicon/crows-intro">
                       <li
-                        key="mushrooms"
-                        className="flex mb-4 items-center border-2 border-black p-3 justify-center rounded-md"
+                        key="crows"
+                        className="flex mb-4 items-center text-white border-2 border-white p-3 justify-center rounded-md"
                       >
                         <h3 className="text-lg mt-3 mb-1 font-bold">
                           <span className="underline decoration-solid">
-                            An intro to Crows
+                            About Crows
                           </span>
                         </h3>
                       </li>
@@ -137,7 +137,7 @@ export default function Lexicon(props: Props) {
                           >
                             <li
                               key={article.id}
-                              className="flex mb-4 items-center border-2 border-black p-3 rounded-md"
+                              className="flex mb-4 items-center text-white border-2 border-white p-3 rounded-md"
                             >
                               <Image
                                 alt={article.title}
@@ -147,7 +147,7 @@ export default function Lexicon(props: Props) {
                                 className="mr-2"
                               />
 
-                              <h3 className="text-lg mt-3 mb-1 font-bold">
+                              <h3 className="lg:text-lg text-xs mt-3 mb-1 font-bold">
                                 {article.title}
                               </h3>
                             </li>

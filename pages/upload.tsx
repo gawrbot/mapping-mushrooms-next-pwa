@@ -80,10 +80,7 @@ export default function Upload(props: Props) {
             alt="current image upload"
           />
         ) : null}
-        <Label
-          htmlFor="articles"
-          value="Select a mushroom or a crow (optional)"
-        />
+        <Label htmlFor="articles" value="Select an article" />
         <Select
           id="articles"
           // defaultValue=""
@@ -95,6 +92,7 @@ export default function Upload(props: Props) {
           <option value="" hidden>
             Select an article
           </option>
+
           {props.articles.map((article) => (
             <option key={article.id} value={article.id}>
               {article.title}

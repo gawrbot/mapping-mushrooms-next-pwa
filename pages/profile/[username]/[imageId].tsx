@@ -2,6 +2,7 @@ import { GetServerSidePropsContext } from 'next';
 import { CldImage } from 'next-cloudinary';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Article, getArticleById } from '../../../database/articles';
 import { getImageById, ImageType } from '../../../database/images';
 
 type Props =
@@ -10,6 +11,7 @@ type Props =
     }
   | {
       image: ImageType;
+      article: Article;
     };
 
 export default function SingleImage(props: Props) {
@@ -61,7 +63,10 @@ export default function SingleImage(props: Props) {
             <h2 className="text-lg mt-3 mb-1 font-bold">Upload Note</h2>
             <p>{props.image.note}</p>
             <h2 className="text-lg mt-3 mb-1 font-bold">Associated Article</h2>
-            <p>{props.image.articleId}</p>
+            <h3 className="text-md mt-3 mb-1 font-bold">
+              {props.article.title}
+            </h3>
+            <p>{props.article.content}</p>
           </div>
         </div>
       </div>
@@ -83,10 +88,13 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       },
     };
   }
+  const articleId = foundImage.articlesId;
+  const foundArticle = await getArticleById(Number(articleId));
 
   return {
     props: {
       image: JSON.parse(JSON.stringify(foundImage)),
+      article: foundArticle,
     },
   };
 }

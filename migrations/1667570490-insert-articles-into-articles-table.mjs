@@ -1,5 +1,12 @@
 const articles = [
   {
+    title: '❓ Unknown',
+    slug: 'none',
+    image_preview: 'none',
+    type: 'none',
+    content: 'none',
+  },
+  {
     title: '🪶 Carrion Crow',
     slug: 'carrion-crow',
     image_preview: '/carrion-crow.jpg',

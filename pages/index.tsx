@@ -10,7 +10,7 @@ export default function Home() {
         <title>Crows & Mushrooms</title>
         <meta name="description" content="Mapping the stars of two kingdoms" />
       </Head>
-      <div className="flex h-[80vh] lg:flex-row flex-col items-center bg-white border rounded-lg shadow-md hover:bg-gray-100 w-2/3 mx-auto">
+      <div className="flex h-[80vh] lg:flex-row flex-col items-center bg-white border rounded-lg shadow-md hover:bg-gray-100 lg:w-2/3 w-full mx-auto">
         <img
           className=" object-cover max-h-[100%] rounded-lg w-1/2"
           src="/crow_mushroom_c_maxie_samson.jpg"

@@ -3,7 +3,7 @@ import { Navbar } from 'flowbite-react';
 export default function Header(props) {
   return (
     <Navbar
-      className="bg-[#324b50] fixed top-0 left-0 w-full mb-2"
+      className="bg-[#324b50] fixed top-0 left-0 w-full mb-2 z-50"
       fluid={true}
       rounded={false}
     >
@@ -23,7 +23,7 @@ export default function Header(props) {
           <span className="text-white text-lg">Home</span>
         </Navbar.Link>
         {props.user ? (
-          <div className="flex lg:space-x-8 lg:flex-row md:space-x-3 md:flex-row flex-col text-white">
+          <div className="flex lg:space-x-8 lg:flex-row md:space-x-3 md:flex-row flex-col text-white z-1">
             <Navbar.Link href="/map">
               <span className="text-white text-lg">Map</span>
             </Navbar.Link>

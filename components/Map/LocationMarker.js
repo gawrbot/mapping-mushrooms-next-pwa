@@ -2,6 +2,7 @@ import L from 'leaflet';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
+import Image from 'next/image';
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import Control from 'react-leaflet-custom-control';
@@ -57,7 +58,12 @@ export default function LocationMarker() {
           clickHandlerLocation();
         }}
       >
-        Me
+        <Image
+          width={30}
+          height={30}
+          src="/location.png"
+          alt="location marker"
+        />
       </button>
     </Control>
   );

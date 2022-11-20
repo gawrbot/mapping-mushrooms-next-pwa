@@ -34,3 +34,18 @@ export async function getArticleBySlug(slug: string) {
 
   return article;
 }
+
+export async function getArticleById(articleId: number) {
+  if (!articleId) return undefined;
+
+  const [article] = await sql<Article[]>`
+  SELECT
+    *
+  FROM
+    articles
+  WHERE
+    articles.id = ${articleId}
+  `;
+
+  return article;
+}

@@ -30,9 +30,9 @@ export default function HomeMap(props: Props) {
     );
   }
   return (
-    <div className="pt-16">
+    <div className="pt-16 ">
       <Map
-        className="w-screen h-[87vh]"
+        className="w-screen h-[87vh] z-0"
         zoom={15}
         center={defaultCenter}
         scrollWheelZoom={false}
