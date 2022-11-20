@@ -86,14 +86,14 @@ export async function createImage(
   userId: number,
   userName: string,
   note: string,
-  articleId: number,
+  articlesId: number,
 ) {
   // if (!note) {
   const [newImage] = await sql<ImageType[]>`
   INSERT INTO images
     (image, longitude, latitude, users_id, users_username, note, articles_id)
   VALUES
-    (${image}, ${longitude}, ${latitude}, ${userId}, ${userName}, ${note}, ${articleId})
+    (${image}, ${longitude}, ${latitude}, ${userId}, ${userName}, ${note}, ${articlesId})
   RETURNING
     *
   `;
@@ -113,12 +113,15 @@ export async function deleteImageById(imageId: number) {
   return deletedImage;
 }
 
-export async function updateArticleIdByImage(image: string, articleId: number) {
+export async function updateArticleIdByImage(
+  image: string,
+  articlesId: number,
+) {
   const [updatedArticleId] = await sql<ImageType[]>`
   UPDATE
     images
   SET
-    article_id = ${articleId}
+    article_id = ${articlesId}
   WHERE
     image = ${image}
   RETURNING

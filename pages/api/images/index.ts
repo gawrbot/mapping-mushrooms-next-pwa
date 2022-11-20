@@ -15,7 +15,7 @@ export type ImageResponseBody =
       userId?: number;
       userName?: string;
       note?: string;
-      articleId?: number;
+      articlesId?: number;
     };
 
 export default async function handler(
@@ -30,7 +30,7 @@ export default async function handler(
       request.body.userId,
       request.body.userName,
       request.body.note,
-      request.body.articleId,
+      request.body.articlesId,
     );
 
     response.status(200).json({
@@ -40,7 +40,7 @@ export default async function handler(
       userId: newImage?.userId,
       userName: newImage?.usersUsername,
       note: newImage?.note,
-      articleId: newImage?.articleId,
+      articlesId: newImage?.articlesId,
     });
   } else if (request.method === 'GET') {
     const session =

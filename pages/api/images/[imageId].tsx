@@ -17,7 +17,7 @@ export type ImageResponseBody =
         userId?: number;
         userName?: string;
         note?: string;
-        articleId?: number;
+        articlesId?: number;
       };
     };
 
@@ -56,7 +56,7 @@ export default async function handler(
       userId: imageToDelete?.userId,
       userName: imageToDelete?.usersUsername,
       note: imageToDelete?.note,
-      articleId: imageToDelete?.articleId,
+      articlesId: imageToDelete?.articlesId,
     },
   });
 }
