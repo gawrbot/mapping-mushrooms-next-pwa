@@ -27,9 +27,9 @@ export default function IntroCrows(props: Props) {
         <title>Intro to Crows</title>
         <meta name="description" content="Article on Crows in general" />
       </Head>
-      <div className="flex h-[80vh] lg:flex-row md:flex-col items-center bg-white border rounded-lg shadow-md hover:bg-gray-100">
+      <div className="flex h-[80vh] lg:flex-row flex-col items-center bg-white border rounded-lg shadow-md hover:bg-gray-100">
         <img
-          className="aspect-[3/4] object-cover max-h-[100%] rounded-lg w-1/3"
+          className="aspect-[3/4] object-cover lg:max-h-[100%] rounded-lg lg:w-1/3 w-full max-h-[50%]"
           src="/crows-intro.jpg"
           alt="two hooded crows on blue background"
         />

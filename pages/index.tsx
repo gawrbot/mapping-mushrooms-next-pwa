@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
       <div className="flex h-[80vh] lg:flex-row flex-col items-center bg-white border rounded-lg shadow-md hover:bg-gray-100 lg:w-2/3 w-full mx-auto">
         <img
-          className=" object-cover max-h-[100%] rounded-lg w-1/2"
+          className="object-cover max-h-[100%] rounded-lg w-1/2"
           src="/crow_mushroom_c_maxie_samson.jpg"
           alt="illustration of crows and mushrooms on a tree stub by maxie samson"
         />
