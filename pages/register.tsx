@@ -1,7 +1,6 @@
-import { Button, Card, Label, TextInput } from 'flowbite-react';
+import { Card, Label, TextInput } from 'flowbite-react';
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { getValidSessionByToken } from '../database/sessions';

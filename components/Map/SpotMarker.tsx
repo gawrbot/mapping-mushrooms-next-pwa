@@ -61,8 +61,7 @@ export default function SpotMarker() {
       })
       .bindPopup(
         "<div><strong>You clicked here!</strong><br/><a href='/upload'>Upload an image in this spot</a></div>",
-      )
-      .openPopup();
+      );
   });
 
   return null;

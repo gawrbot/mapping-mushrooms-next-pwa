@@ -15,7 +15,7 @@ type Props = {
 export default function Upload(props: Props) {
   const [image, setImage] = useState();
   const [note, setNote] = useState('');
-  const [articleId, setArticleId] = useState(Number);
+  const [articlesId, setArticlesId] = useState(Number);
   const router = useRouter();
 
   const locationCookie = getParsedCookie('currentLocation');
@@ -52,7 +52,7 @@ export default function Upload(props: Props) {
         userId: props.user.id,
         userName: props.user.username,
         note: note,
-        articleId: articleId,
+        articlesId: articlesId,
       }),
     });
     const databaseResponseBody = await databaseResponse.json();
@@ -84,9 +84,9 @@ export default function Upload(props: Props) {
         <Select
           id="articles"
           // defaultValue=""
-          value={articleId}
+          value={articlesId}
           onChange={(event) => {
-            setArticleId(Number(event.currentTarget.value));
+            setArticlesId(Number(event.currentTarget.value));
           }}
         >
           <option value="" hidden>
@@ -114,7 +114,7 @@ export default function Upload(props: Props) {
 
         <button
           className="bg-[#7d4d2b] rounded-md text-lg text-white px-2 py-2 my-2 text-center"
-          onClick={uploadToDatabaseHandler}
+          // onClick={uploadToDatabaseHandler}
         >
           Confirm upload
         </button>

@@ -1,29 +1,15 @@
 import L from 'leaflet';
-import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
-import iconUrl from 'leaflet/dist/images/marker-icon.png';
-import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import Image from 'next/image';
-import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import Control from 'react-leaflet-custom-control';
 import { setStringifiedCookie } from '../../utils/cookies';
 
 export default function LocationMarker() {
-  // Get pretty blue icon
-  useEffect(() => {
-    (async function init() {
-      // @ts-ignore
-      delete L.Icon.Default.prototype._getIconUrl;
+  const greenIcon = L.icon({
+    iconUrl: 'locationmarker.png',
 
-      await L.Icon.Default.mergeOptions({
-        iconRetinaUrl: iconRetinaUrl.src,
-        iconUrl: iconUrl.src,
-        shadowUrl: shadowUrl.src,
-      });
-    })().catch(() => {
-      console.log('Error loading the marker icon');
-    });
-  }, []);
+    iconSize: [40, 40], // size of the icon
+  });
 
   // Get current location on click
   const map = useMap();
@@ -32,10 +18,9 @@ export default function LocationMarker() {
     map.locate().on('locationfound', function (e) {
       map.flyTo(e.latlng, map.getZoom());
 
-      const marker = L.marker(e.latlng);
+      const marker = L.marker(e.latlng, { icon: greenIcon });
       marker
         .addTo(map)
-
         .on('click', function setLocationCookie() {
           const currentLocationLng = e.latlng.lng;
           const currentLocationLat = e.latlng.lat;

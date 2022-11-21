@@ -1,4 +1,3 @@
-import { Card } from 'flowbite-react';
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';

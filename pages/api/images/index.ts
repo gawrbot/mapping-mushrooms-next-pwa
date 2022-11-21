@@ -49,7 +49,7 @@ export default async function handler(
 
     if (!session) {
       response
-        .status(400)
+        // .status(400)
         .json({ errors: [{ message: 'No valid session token passed' }] });
       return;
     }

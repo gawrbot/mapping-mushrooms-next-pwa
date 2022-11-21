@@ -35,8 +35,8 @@ export async function getArticleBySlug(slug: string) {
   return article;
 }
 
-export async function getArticleById(articleId: number) {
-  if (!articleId) return undefined;
+export async function getArticleById(articlesId: number) {
+  if (!articlesId) return undefined;
 
   const [article] = await sql<Article[]>`
   SELECT
@@ -44,7 +44,7 @@ export async function getArticleById(articleId: number) {
   FROM
     articles
   WHERE
-    articles.id = ${articleId}
+    articles.id = ${articlesId}
   `;
 
   return article;

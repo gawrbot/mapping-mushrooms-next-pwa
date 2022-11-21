@@ -11,11 +11,10 @@ type Props =
     }
   | {
       image: ImageType;
-      article: Article;
+      article: Article | undefined;
     };
 
 export default function SingleImage(props: Props) {
-  console.log(props);
   if ('error' in props) {
     return (
       <div className="flex flex-col">
@@ -62,11 +61,17 @@ export default function SingleImage(props: Props) {
             </p>
             <h2 className="text-lg mt-3 mb-1 font-bold">Upload Note</h2>
             <p>{props.image.note}</p>
-            <h2 className="text-lg mt-3 mb-1 font-bold">Associated Article</h2>
-            <h3 className="text-md mt-3 mb-1 font-bold">
-              {props.article.title}
-            </h3>
-            <p>{props.article.content}</p>
+            {typeof props.article === 'undefined' ? null : (
+              <div>
+                <h2 className="text-lg mt-3 mb-1 font-bold">
+                  Associated Article
+                </h2>
+                <h3 className="text-md mt-3 mb-1 font-bold">
+                  {props.article.title}
+                </h3>
+                <p>{props.article.content}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -80,7 +85,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const foundImage = await getImageById(Number(imageId));
 
   if (typeof foundImage === 'undefined') {
-    console.log('context', context);
     context.res.statusCode = 404;
     return {
       props: {
@@ -89,7 +93,16 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   }
   const articleId = foundImage.articlesId;
+
   const foundArticle = await getArticleById(Number(articleId));
+  if (typeof foundArticle === 'undefined') {
+    context.res.statusCode = 404;
+    return {
+      props: {
+        image: JSON.parse(JSON.stringify(foundImage)),
+      },
+    };
+  }
 
   return {
     props: {
