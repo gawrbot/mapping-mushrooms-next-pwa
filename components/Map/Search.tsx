@@ -2,13 +2,6 @@ import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 
-// const searchControl = new GeoSearchControl({
-//   provider: new OpenStreetMapProvider(),
-//   style: 'bar',
-// });
-
-// map.addControl(searchControl);
-// make new leaflet element
 export default function Search() {
   const map = useMap();
 
@@ -25,6 +18,36 @@ export default function Search() {
     // @ts-ignore
     return () => map.removeControl(searchControl);
   }, [map]);
+
+  function getQueryStringValue(key: string) {
+    return decodeURIComponent(
+      window.location.search.replace(
+        new RegExp(
+          '^(?:.*[&\\?]' +
+            encodeURIComponent(key).replace(/[\.\+\*]/g, '\\$&') +
+            '(?:\\=([^&]*))?)?.*$',
+          'i',
+        ),
+        '$1',
+      ),
+    );
+  }
+
+  const lat = getQueryStringValue('lat');
+  const lng = getQueryStringValue('lng');
+  const zoom = getQueryStringValue('zoom');
+
+  useEffect(() => {
+    function detectQueryString() {
+      const currentQueryString = window.location.search;
+      if (!currentQueryString) {
+        return;
+      } else {
+        return map.setView([Number(lat), Number(lng)], Number(zoom));
+      }
+    }
+    detectQueryString();
+  });
 
   return null;
 }

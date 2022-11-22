@@ -37,6 +37,7 @@ The data is stored in a postgres database and the project includes migrations to
 - Update option for article and notes in the images
 - Comment section for each uploaded image
 - 'See in Map' button in the image page, leading to the spot in the map and centering there
+- All images shown below their associated article
 
 ### Technologies and Services
 

@@ -2,6 +2,7 @@ import { GetServerSidePropsContext } from 'next';
 import { CldImage } from 'next-cloudinary';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Article, getArticleById } from '../../../database/articles';
 import { getImageById, ImageType } from '../../../database/images';
 
@@ -15,6 +16,7 @@ type Props =
     };
 
 export default function SingleImage(props: Props) {
+  const router = useRouter();
   if ('error' in props) {
     return (
       <div className="flex flex-col">
@@ -72,6 +74,18 @@ export default function SingleImage(props: Props) {
                 <p>{props.article.content}</p>
               </div>
             )}
+            <button
+              onClick={async () => {
+                await router
+                  .push(
+                    `/map?lat=${props.image.latitude}&lng=${props.image.longitude}&zoom=25`,
+                  )
+                  .catch(() => {});
+              }}
+              className="bg-[#324b50] rounded-md text-white text-md px-2 py-1 mb-2 mt-4 text-center mr-auto"
+            >
+              See in map
+            </button>
           </div>
         </div>
       </div>

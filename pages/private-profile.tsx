@@ -4,7 +4,6 @@ import { CldImage } from 'next-cloudinary';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 import { getImagesByUserId, ImageType } from '../database/images';
 import { getAllUsers, getUserBySessionToken, User } from '../database/users';
 
