@@ -1,14 +1,17 @@
+import { Label, Select } from 'flowbite-react';
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import { CldImage } from 'next-cloudinary';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { getImagesByUserId, ImageType } from '../database/images';
-import { getUserBySessionToken, User } from '../database/users';
+import { getAllUsers, getUserBySessionToken, User } from '../database/users';
 
 type Props = {
   user?: User;
   images?: ImageType[];
+  publicUsers?: User[];
 };
 
 export default function PrivateProfile(props: Props) {
@@ -93,6 +96,30 @@ export default function PrivateProfile(props: Props) {
           <div className="container py-10">
             <p>{props.user.username}</p>
           </div>
+          <h2 className="text-xl font-bold border-b-2 border-white">
+            Checkout other user profiles
+          </h2>
+          <div className="container py-10">
+            <p>
+              <Label htmlFor="publicProfiles" value="Select a user" />
+              <Select
+                id="publicProfiles"
+                // value={username}
+                onChange={async (event) => {
+                  await router.push(`/profile/${event.currentTarget.value}`);
+                }}
+              >
+                <option value="" hidden>
+                  Select a user
+                </option>
+                {props.publicUsers?.map((publicUser) => (
+                  <option key={publicUser.id} value={publicUser.username}>
+                    {publicUser.username}
+                  </option>
+                ))}
+              </Select>
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -118,8 +145,9 @@ export async function getServerSideProps(
   const userId = user.id;
 
   const images = await getImagesByUserId(userId);
+  const publicUsers = await getAllUsers();
 
   return {
-    props: { user, images: JSON.parse(JSON.stringify(images)) },
+    props: { user, images: JSON.parse(JSON.stringify(images)), publicUsers },
   };
 }

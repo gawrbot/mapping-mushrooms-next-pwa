@@ -83,3 +83,31 @@ export async function deleteUser(username: string, passwordHash: string) {
 
   return deletedUser!;
 }
+
+export async function getUserByUserId(userId: number) {
+  if (!userId) return undefined;
+
+  const [user] = await sql<{ id: number; username: string }[]>`
+  SELECT
+    id,
+    username
+  FROM
+    users
+  WHERE
+    users.id = ${userId}
+  `;
+
+  return user!;
+}
+
+export async function getAllUsers() {
+  const users = await sql<{ id: number; username: string }[]>`
+  SELECT
+    *
+  FROM
+    users
+
+  `;
+
+  return users;
+}
