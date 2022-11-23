@@ -82,7 +82,7 @@ export default function Lexicon(props: Props) {
                               key={article.id}
                               className="flex mb-4 items-center border-2 text-white border-white p-3 rounded-md"
                             >
-                              <Image
+                              <img
                                 alt={article.title}
                                 src={article.imagePreview}
                                 width={80}

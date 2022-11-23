@@ -13,13 +13,13 @@ module.exports = withPWA({
       {
         protocol: 'https',
         hostname: 'outforia.com',
-        port: '',
+        port: '8080',
         pathname: '/wp-content/uploads/2021/12/**',
       },
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
-        port: '',
+        port: '8080',
         pathname: '/dvobwyzci/image/upload/**',
       },
     ],
