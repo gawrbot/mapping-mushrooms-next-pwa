@@ -102,11 +102,11 @@ export default function PrivateProfile(props: Props) {
           </h2>
           <div className="container py-10">
             <p>
-              <Label
+              {/* <Label
                 htmlFor="publicProfiles"
                 value="Public profiles"
                 className="text-white"
-              />
+              /> */}
               <Select
                 id="publicProfiles"
                 // value={username}
