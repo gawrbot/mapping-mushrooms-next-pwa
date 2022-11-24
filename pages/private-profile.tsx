@@ -91,16 +91,22 @@ export default function PrivateProfile(props: Props) {
           </div>
         </div>
         <div className="bg-[#7d4d2b] text-white p-6 rounded-md lg:w-1/3 mb-5">
-          <h2 className="text-xl font-bold border-b-2 border-white">About</h2>
+          <h2 className="text-xl font-bold border-b-2 border-white">
+            Current user
+          </h2>
           <div className="container py-10">
             <p>{props.user.username}</p>
           </div>
           <h2 className="text-xl font-bold border-b-2 border-white">
-            Checkout other user profiles
+            Check out other user profiles
           </h2>
           <div className="container py-10">
             <p>
-              <Label htmlFor="publicProfiles" value="Select a user" />
+              <Label
+                htmlFor="publicProfiles"
+                value="Public profiles"
+                className="text-white"
+              />
               <Select
                 id="publicProfiles"
                 // value={username}
