@@ -8,7 +8,7 @@ When you register or log in, you can navigate in a map and/or find your location
 
 The saved images will be loaded with markers in the map, when you revisit the map.
 
-In your private profile, you can see all your uploaded images and delete them individually. When you click on an individual image, you will be redirected to your public profile, where all the upload information, you gave, is displayed. From your private profile, you can also navigate to other users' public profiles to see, what they have uploaded.
+In your private profile, you can see all your uploaded images and delete them individually. When you click on an individual image, you will be redirected to your public profile, where all the upload information, you gave, is displayed. From your private profile, you can also navigate to other users' public profiles to see, what they have uploaded and navigate to the location, the image was uploaded in.
 
 In the included lexicon you can choose an article on a mushroom or a crow, that you are interested in.
 
