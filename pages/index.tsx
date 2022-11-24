@@ -17,7 +17,7 @@ export default function Home() {
           alt="illustration of crows and mushrooms on a tree stub by maxie samson"
         />
         <div className="flex flex-col justify-between p-4 leading-normal vh-100 max-h-[100vh] overflow-y-scroll lg:overflow-y-visible">
-          <h1 className="text-4xl font-rubik tracking-tight text-black">
+          <h1 className="lg:text-4xl text-2xl font-rubik tracking-tight text-black">
             True Aces of Survival
           </h1>
           <p className="mt-2">
@@ -32,7 +32,7 @@ export default function Home() {
           </p>
           <p className="mt-2">
             That's what this application is all about: observing where they show
-            up, what they do and who the form alliances with.
+            up, what they do and who they form alliances with.
           </p>
           <p className="font-bold text-center mt-3">Getting started:</p>
           <div className="flex mt-3 space-x-5 justify-center">

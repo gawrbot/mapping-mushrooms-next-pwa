@@ -8,7 +8,7 @@ When you register or log in, you can navigate in a map and/or find your location
 
 The saved images will be loaded with markers in the map, when you revisit the map.
 
-In your private profile, you can see all your uploaded images and delete them individually. When you click on an individual image, you will be redirected to your public profile, where all the upload information, you gave, is displayed. From your private profile, you can also navigate to other users' public profiles to see, what they have uploaded.
+In your private profile, you can see all your uploaded images and delete them individually. When you click on an individual image, you will be redirected to your public profile, where all the upload information, you gave, is displayed. From your private profile, you can also navigate to other users' public profiles to see, what they have uploaded and navigate to the location, the image was uploaded in.
 
 In the included lexicon you can choose an article on a mushroom or a crow, that you are interested in.
 
@@ -36,7 +36,6 @@ The data is stored in a postgres database and the project includes migrations to
 - Refining the marker setting
 - Update option for article and notes in the images
 - Comment section for each uploaded image
-- 'See in Map' button in the image page, leading to the spot in the map and centering there
 - All images shown below their associated article
 
 ### Technologies and Services
