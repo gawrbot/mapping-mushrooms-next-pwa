@@ -29,16 +29,6 @@ You can always log out from the (dropdown) menu in the header.
 
 The data is stored in a postgres database and the project includes migrations to work from other machines.
 
-## Planned Features
-
-- More accurate location finding
-- Authentication via a valid email address or third party authorisation via Google
-- Refining the marker setting
-- Update option for article and notes in the images
-- Comment section for each uploaded image
-- 'See in Map' button in the image page, leading to the spot in the map and centering there
-- All images shown below their associated article
-
 ### Technologies and Services
 
 - Typescript, SQL (with Postgres), JSX, CSS
@@ -63,6 +53,16 @@ The data is stored in a postgres database and the project includes migrations to
 - Figma
 - Notion
 - DrawSQL
+
+## Planned Features
+
+- More accurate location finding
+- Authentication via a valid email address or third party authorisation via Google
+- Refining the marker setting
+- Update option for article and notes in the images
+- Comment section for each uploaded image
+- 'See in Map' button in the image page, leading to the spot in the map and centering there
+- All images shown below their associated article
 
 #### Workaround/Node Module Patching for Leaflet Type Error `Property '_getIconUrl' does not exist on type 'Default'.`:
 
