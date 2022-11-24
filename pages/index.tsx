@@ -17,7 +17,7 @@ export default function Home() {
           alt="illustration of crows and mushrooms on a tree stub by maxie samson"
         />
         <div className="flex flex-col justify-between p-4 leading-normal vh-100 max-h-[100vh] overflow-y-scroll lg:overflow-y-visible">
-          <h1 className="lg:text-4xl text-2xl font-rubik tracking-tight text-black">
+          <h1 className="lg:text-4xl lg:text-left text-3xl text-center font-rubik tracking-tight text-black">
             True Aces of Survival
           </h1>
           <p className="mt-2">
