@@ -1,4 +1,4 @@
-import { Label, Select } from 'flowbite-react';
+import { Select } from 'flowbite-react';
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next';
 import { CldImage } from 'next-cloudinary';
 import Head from 'next/head';
