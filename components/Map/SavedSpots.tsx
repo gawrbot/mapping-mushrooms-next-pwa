@@ -1,7 +1,3 @@
-import L from 'leaflet';
-import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
-import iconUrl from 'leaflet/dist/images/marker-icon.png';
-import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -10,22 +6,6 @@ import { ImageResponseBody } from '../../pages/api/images';
 
 export default function LocationMarker() {
   const [images, setImages] = useState<any[]>([]);
-
-  // Get pretty blue icon
-  useEffect(() => {
-    (async function init() {
-      // @ts-ignore
-      delete L.Icon.Default.prototype._getIconUrl;
-
-      await L.Icon.Default.mergeOptions({
-        iconRetinaUrl: iconRetinaUrl.src,
-        iconUrl: iconUrl.src,
-        shadowUrl: shadowUrl.src,
-      });
-    })().catch(() => {
-      console.log('Error loading the marker icon');
-    });
-  }, []);
 
   // Get all saved images
   useEffect(() => {
