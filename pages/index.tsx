@@ -32,7 +32,7 @@ export default function Home() {
           </p>
           <p className="mt-2">
             That's what this application is all about: observing where they show
-            up, what they do and who they form alliances with.
+            up, what they do and with whom they form alliances.
           </p>
           <p className="font-bold text-center mt-3">Getting started:</p>
           <div className="flex mt-3 space-x-5 justify-center">
