@@ -36,6 +36,7 @@ COPY --from=builder /app/scripts ./scripts
 RUN chmod +x /app/scripts/fly-io-start.sh
 ENV NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME dvobwyzci
 
+ENV NODE_ENV production
 ENV FLY_IO true
 ENV PORT 8080
 

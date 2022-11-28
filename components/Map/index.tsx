@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
 
+// Dynamic imports, so there are no 'Window is not defined' issues
 export const Map = dynamic(() => import('./Map'), {
   loading: () => <p>The map is loading</p>,
   ssr: false,

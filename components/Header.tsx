@@ -1,6 +1,9 @@
 import { Navbar } from 'flowbite-react';
+import { User } from '../database/users';
 
-export default function Header(props) {
+type Props = { user: User };
+
+export default function Header(props: Props) {
   return (
     <Navbar
       className="bg-[#324b50] fixed top-0 left-0 w-full mb-2 z-50"
@@ -22,7 +25,7 @@ export default function Header(props) {
         <Navbar.Link href="/">
           <span className="text-white text-lg">Home</span>
         </Navbar.Link>
-        {props.user ? (
+        {typeof props.user !== 'undefined' ? (
           <div className="flex lg:space-x-8 lg:flex-row md:space-x-3 md:flex-row flex-col text-white z-1">
             <Navbar.Link href="/map">
               <span className="text-white text-lg">Map</span>

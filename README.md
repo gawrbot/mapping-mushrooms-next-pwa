@@ -56,14 +56,22 @@ The data is stored in a postgres database and the project includes migrations to
 
 ## Planned Features
 
+- Full keyboard and screenreader accessibility
 - More accurate location finding
 - Authentication via a valid email address or third party authorisation via Google
-- Refining the marker setting
-- Update option for article and notes in the images
+- Refining the setting of markers (only one marker at a time)
+- Update option for articles and notes in the images
 - Comment section for each uploaded image
 - 'See in Map' button in the image page, leading to the spot in the map and centering there
 - All images shown below their associated article
+- Work on content and design
 
-#### Workaround/Node Module Patching for Leaflet Type Error `Property '_getIconUrl' does not exist on type 'Default'.`:
+## Planning the application
 
-Add `_getIconUrl?: (name: string) => string;` in the `class Default` of the `namespace Icon` after Line 2466 in: node_modules\@types\leaflet\index.d.ts --> not sustainable though
+![Prototype](/screenshot-prototype-1.png)
+
+![Prototype](/screenshot-prototype-2.png)
+
+![Flow](/screenshot-flow.png)
+
+<small>Workaround/Node Module Patching for Leaflet Type Error `Property '_getIconUrl' does not exist on type 'Default'.`: Add `_getIconUrl?: (name: string) => string;` in the `class Default` of the `namespace Icon` after Line 2466 in: node_modules\@types\leaflet\index.d.ts --> not sustainable though</small>

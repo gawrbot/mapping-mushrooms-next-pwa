@@ -4,7 +4,7 @@ import styles from './Map.module.css';
 
 const { MapContainer } = ReactLeaflet;
 
-const Map = ({ children, className, ...rest }) => {
+const Map = ({ children, className, ...rest }: any) => {
   let mapClassName = styles.map;
 
   if (className) {
