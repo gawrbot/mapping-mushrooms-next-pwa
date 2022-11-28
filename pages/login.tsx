@@ -119,7 +119,6 @@ export default function Login(props: Props) {
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const token = context.req.cookies.sessionToken;
-  console.log('token', context.req.cookies.sessionToken);
   if (token && (await getValidSessionByToken(token))) {
     return {
       redirect: {

@@ -7,7 +7,6 @@ import { useMap } from 'react-leaflet';
 import { setStringifiedCookie } from '../../utils/cookies';
 
 export default function SpotMarker() {
-  // let [isOpen, setIsOpen] = useState(true);
   // Get pretty blue icon
   useEffect(() => {
     (async function init() {
@@ -54,7 +53,7 @@ export default function SpotMarker() {
       .on('click', function setLocationCookie() {
         const currentLocationLng = e.latlng.lng;
         const currentLocationLat = e.latlng.lat;
-
+        console.log('e', e);
         setStringifiedCookie('currentLocation', [
           { longitude: currentLocationLng, latitude: currentLocationLat },
         ]);

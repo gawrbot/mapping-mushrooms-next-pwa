@@ -190,7 +190,7 @@ export async function getServerSideProps(
   if (!user) {
     return {
       redirect: {
-        destination: '/login?returnTo=/private-profile',
+        destination: '/login?returnTo=/lexicon/mushrooms-intro',
         permanent: false,
       },
     };
