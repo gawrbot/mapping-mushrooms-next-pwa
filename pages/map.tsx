@@ -64,7 +64,7 @@ export async function getServerSideProps(
   if (!user) {
     return {
       redirect: {
-        destination: '/login?returnTo=/map',
+        destination: '/login?returnTo=/private-profile',
         permanent: false,
       },
     };

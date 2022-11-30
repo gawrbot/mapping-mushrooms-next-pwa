@@ -1,6 +1,3 @@
-/** @type {import('@typescript-eslint/utils').TSESLint.Linter.Config} */
-const config = {
+module.exports = {
   extends: ['@upleveled/upleveled'],
 };
-
-module.exports = config;

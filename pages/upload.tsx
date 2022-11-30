@@ -131,7 +131,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   if (!user) {
     return {
       redirect: {
-        destination: '/login?returnTo=/upload',
+        destination: '/login?returnTo=/private-profile',
         permanent: false,
       },
     };

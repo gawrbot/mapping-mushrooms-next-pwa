@@ -353,7 +353,7 @@ export async function getServerSideProps(
   if (!user) {
     return {
       redirect: {
-        destination: '/login?returnTo=/lexicon/crows-intro',
+        destination: '/login?returnTo=/private-profile',
         permanent: false,
       },
     };

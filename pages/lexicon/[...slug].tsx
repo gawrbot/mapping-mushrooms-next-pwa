@@ -85,10 +85,11 @@ export async function getServerSideProps(
   const token = context.req.cookies.sessionToken;
 
   const user = token && (await getUserBySessionToken(token));
+
   if (!user) {
     return {
       redirect: {
-        destination: '/login?returnTo=/lexicon',
+        destination: '/login?returnTo=/private-profile',
         permanent: false,
       },
     };

@@ -24,6 +24,10 @@ export function setStringifiedCookie(key: string, value: LocationCookie[]) {
   Cookies.set(key, JSON.stringify(value));
 }
 
+export function stringifyCookieValue(value: LocationCookie[]) {
+  return JSON.stringify(value);
+}
+
 export function deleteCookie(key: string) {
   Cookies.remove(key);
 }
