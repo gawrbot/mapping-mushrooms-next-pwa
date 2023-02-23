@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { getUserBySessionToken } from '../database/users';
 
-export default function Home() {
+export default function Home(props: any) {
   return (
     <div className="pt-20 bg-[#95b0b6]">
       <Head>
@@ -34,19 +34,31 @@ export default function Home() {
             That's what this application is all about: observing where they show
             up, what they do and with whom they form alliances.
           </p>
-          <p className="font-bold text-center mt-3">Getting started:</p>
-          <div className="flex mt-3 space-x-5 justify-center">
-            <Link href="/register">
-              <span className="bg-[#7d4d2b] rounded-md text-md text-white px-2 py-2 my-2 text-center">
-                Register
-              </span>
-            </Link>
-            <Link href="/login">
-              <span className="bg-[#7d4d2b] rounded-md text-md text-white px-2 py-2 my-2 text-center">
-                Login
-              </span>
-            </Link>
-          </div>
+          {!props.user ? (
+            <div>
+              <p className="font-bold text-center mt-3">Getting started:</p>
+              <div className="flex mt-3 space-x-5 justify-center">
+                <Link href="/register">
+                  <span className="bg-[#7d4d2b] rounded-md text-md text-white px-2 py-2 my-2 text-center">
+                    Register
+                  </span>
+                </Link>
+                <Link href="/login">
+                  <span className="bg-[#7d4d2b] rounded-md text-md text-white px-2 py-2 my-2 text-center">
+                    Login
+                  </span>
+                </Link>
+              </div>{' '}
+            </div>
+          ) : (
+            <div className="flex mt-3 space-x-5 justify-center">
+              <Link href="/private-profile">
+                <span className="bg-[#7d4d2b] rounded-md text-md text-white px-2 py-2 my-2 text-center">
+                  Private Profile
+                </span>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

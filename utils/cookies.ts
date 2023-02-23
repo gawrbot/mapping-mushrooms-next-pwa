@@ -1,6 +1,10 @@
 import cookie from 'cookie';
 import Cookies from 'js-cookie';
 
+// FMI: An HTTP cookie (web cookie, browser cookie) is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Typically, an HTTP cookie is used to tell if two requests come from the same browser—keeping a user logged in, for example.
+
+// **It remembers stateful information for the stateless HTTP protocol.**
+
 export type LocationCookie = {
   latitude: number;
   longitude: number;
@@ -31,6 +35,8 @@ export function stringifyCookieValue(value: LocationCookie[]) {
 export function deleteCookie(key: string) {
   Cookies.remove(key);
 }
+
+// Serialise the cookie to communicate with browser and make it remember me
 
 export function createSerializedRegisterSessionTokenCookie(token: string) {
   // check if we are in production e.g Fly.io

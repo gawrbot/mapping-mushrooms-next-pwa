@@ -69,7 +69,7 @@ function MyApp({ Component, pageProps }: any) {
         <meta name="theme-color" content="#324b50" />
       </Head>
       {pageLoading ? (
-        <div className="text-center ">
+        <div className="text-center">
           <Spinner aria-label="loading spinner" />
         </div>
       ) : (

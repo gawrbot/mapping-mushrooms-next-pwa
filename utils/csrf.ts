@@ -1,5 +1,7 @@
 import Tokens from 'csrf';
 
+// create a token that to check if the code requesting from the server is from the authenticated user
+
 const tokens = new Tokens();
 
 export function createCsrfSecret() {
